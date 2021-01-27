@@ -1,0 +1,5 @@
+# The script in this directory was used to compute Bayes factor reflecting each gene’s strength for ASD association from functional annotations 
+# We considered two representation forms of annotations: 
+# (1) binary: presence/absence in biological processes previously implicated in ASD  
+# (2) continuous: gene-level metrics (e.g., pLi) 
+# We used empirical bayes model and estimated the hyperparameters using methods of moments (please see the paper for details)

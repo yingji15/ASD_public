@@ -1,0 +1,55 @@
+
+# Scripts in this folder were used to determine gene-gene distance in network 
+# We assume the the prior probability of a gene being a risk gene to be determined by the overall fraction of risk genes in the genome and the average distance of this gene to positive seed genes in a functional network. The rationale is the closer two genes are in network, the higher chance that have similar functions.
+# To do this: we need to 
+# 1) build an adjacency matrix with the score proportional to the log likelihood ratio of the two genes participate in the same GO annotation versus they don't
+# 2) construct a transition matrix from the adjacency matrix and apply random walk with restart algorithm to derive the reaching probabilities between genes
+# 3) for each gene, we compute the average reaching probabilities to all positive training genes
+# Code adapted from Qiang Wei 
+
+
+
+##########################
+# download data: GO and protein coding gene list 
+#########################
+# ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/HUMAN/ or http://geneontology.org/page/download-annotations
+
+# download protein coding gene list from HGNC (https://www.genenames.org/download/statistics-and-files/)
+
+
+
+#######################
+# Map gene to GO terms: generate gene2go file 
+#########################
+
+
+less gene_association.goa_human.gz |cut -f 3,5 |grep -v '!' |sort | uniq >gene2GO
+
+	
+#######################
+#  generate GO term num file (i.e. for each go term, how many genes in it)
+#########################
+
+
+less gene2GO |cut -f 2 |sort | uniq -c |sort -k1,1nr |perl -lane 'print join("\t",@F[1,0])' >GO.term.num
+
+
+
+#####################
+# generate adjancency matrix using the above processed files
+#####################
+perl 01_gen_adjacency_matrix.pl  >GO.matrix
+
+######################
+# generate transition matrix + apply random walk with restart
+#######################
+
+Rscript 02_trans_matrix_rwr.R 
+
+
+#####################
+# average distance to seed genes
+####################
+
+03_network_toseed.R
+

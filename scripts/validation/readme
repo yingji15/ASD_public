@@ -1,0 +1,15 @@
+# validation
+# 1) genes identified in sequencing study in 2020
+
+# e.g.
+Rscript asd2020_120920.r --list 2016krishnan.test.fmt.txt
+
+# 2) genes from SFARI database
+
+# e.g.
+Rscript /home/jiy1/ASD/ASD_paper/final/sfari_enrich_121020.r --list 2016krishnan.test.fmt.txt
+
+# 3) LDSC using GWAS
+# the idea is to first construct annotation near genes of interest, and use LDSC to compute the enrichment of GWAS heritability in these annotations
+# please see LDSC tutorial for details (https://github.com/bulik/ldsc/wiki/Partitioned-Heritability)
+
