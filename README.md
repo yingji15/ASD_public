@@ -4,9 +4,10 @@
 
 There are 2 directories included.
 
-One included raw data, the other included derived data. 
+Raw data: Some raw data used to derive the gene-gene network. Please see more details in Scripts\/Prior_network.
 
-The [processed tabular data used to train our model](https://github.com/yingji15/ASD_public/blob/main/data/derived/aut_feature_0628.txt) is included in the derived data folder.
+Derived data: The [processed tabular data used to train our model](https://github.com/yingji15/ASD_public/blob/main/data/derived/aut_feature_0628.txt) is included in the derived data folder.
+Processed scores from other methods are also included. 
 
 ## About Scripts\/
 
