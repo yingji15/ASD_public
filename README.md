@@ -3,7 +3,10 @@
 ## About Data\/
 
 There are 2 directories included.
-One included raw data, the other included derived data. The processed tabular data used to train our model is included in the derived data folder.
+
+One included raw data, the other included derived data. 
+
+The [processed tabular data used to train our model] (https://github.com/yingji15/ASD_public/blob/main/data/derived/aut_feature_0628.txt) is included in the derived data folder.
 
 ## About Scripts\/
 
