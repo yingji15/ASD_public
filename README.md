@@ -1,4 +1,4 @@
-# A Bayesian framework to integrate multi-levelgenome-scale data for Autism risk geneprioritization
+# A Bayesian framework to integrate multi-level genome-scale data for Autism risk geneprioritization
 
 ## About Data\/
 
